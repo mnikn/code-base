@@ -17,4 +17,4 @@
             (list (deep-reverse (cdr items))
                   (deep-reverse (car items))))
           (else (append (deep-reverse (cdr items))
-                        (car items)))))
+                        (list (car items))))))
