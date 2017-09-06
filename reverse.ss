@@ -1,7 +1,4 @@
-(define (append list1 list2)
-    (if (null? list1))
-        list2
-        (cons (car list1) (append (cdr list1) (cdr list2))))
+(load "append.ss")
 
 ; 简单的对列表进行反转，不断的让剩余的 list 连接当前的元素
 (define (reverse items)
