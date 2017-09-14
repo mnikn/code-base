@@ -1,21 +1,21 @@
 #lang racket
 
 ; high order
-(define (accmulate prog init seq)
+(define (accumulate prog init seq)
   (if (null? seq)
        init
        (prog (car seq)
-             (accmulate prog init (cdr seq)))))
+             (accumulate prog init (cdr seq)))))
 
 (define (map prog seq)
-  (accmulate
+  (accumulate
    (lambda (x y)
      (cons (prog x) y))
    `()
    seq))
 
 (define (append seq1 seq2)
-  (accmulate
+  (accumulate
    cons
    seq2
    seq1))
