@@ -14,6 +14,12 @@
    `()
    seq))
 
+(define (flatmap prog init seq)
+  (accumulate
+   append
+   `()
+   (map prog seq)))
+
 (define (append seq1 seq2)
   (accumulate
    cons
@@ -46,13 +52,13 @@
                  (fib (- n 2))))))
 
 (define (sum-odd-squares tree)
-  (accmulate
+  (accumulate
    +
    0
    (map square (filter odd? (enumerate-tree tree)))))
 
 (define (evens-fib n)
-  (accmulate
+  (accumulate
    cons
    `()
    (filter even? (map fib (enumerate-interval 0 n)))))
